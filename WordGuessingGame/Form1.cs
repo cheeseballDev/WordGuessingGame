@@ -3,13 +3,15 @@ namespace WordGuessingGame
     public partial class Form1 : Form
     {
 
-        private String wordToGuess = "aishite";
-        private String jumbledWord, userGuess;
+        private String[] words = { "apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew", "kiwi", "lemon", "mango", "nectarine", "orange", "papaya", "quince", "raspberry", "strawberry", "tangerine", "watermelon" };
+        private String jumbledWord, userGuess, wordToGuess;
         Random random = new Random();
         public Form1()
         {
             InitializeComponent();
 
+            int randomWordIndex = random.Next(0, words.Length);
+            wordToGuess = words[randomWordIndex];
             char[] wordToChars = wordToGuess.ToCharArray();
             int randomIndex = random.Next(0, wordToChars.Length);
             for (int i = randomIndex; i < wordToChars.Length; i++)
